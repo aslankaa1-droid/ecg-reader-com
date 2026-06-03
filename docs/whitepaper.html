@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Technical Whitepaper · ECG Reader</title>
+  <link rel="icon" type="image/svg+xml" href="../svg/favicon.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../assets/styles.css"/>
+  <link rel="stylesheet" href="../assets/legal.css"/>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">
+        <svg class="mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16 L8 16 L11 8 L15 24 L18 12 L21 18 L24 16 L30 16"/></svg>
+        <span>ECG Reader</span><span class="tag">AI</span>
+      </a>
+      <div class="nav-tools" style="margin-inline-start: auto;">
+        <a href="../index.html" class="btn btn-ghost btn-sm">← На главную</a>
+      </div>
+    </div>
+  </header>
+  <main class="legal-page">
+    <div class="container">
+      <div class="legal-hero">
+        <span class="legal-eyebrow">Documentation · Whitepaper</span>
+        <h1>Technical Whitepaper</h1>
+        <div class="legal-summary">
+          <strong>В работе.</strong> Полная техническая спецификация платформы ECG Reader публикуется в составе Data Room после подписания NDA. Краткий обзор доступен в <a href="ECG-Reader_Pitch_Deck.html">Pitch Deck</a> (слайды 6–8), детальное описание архитектуры — в проектной документации в папке <code>03_Архитектура_ИС/</code>.
+        </div>
+      </div>
+      <article class="legal-body">
+        <h2>Что входит в whitepaper</h2>
+        <ul>
+          <li>Архитектура 10 микросервисов</li>
+          <li>Спецификация Consensus Engine (формула K = 0,40·U + 0,30·D + 0,15·M + 0,15·R)</li>
+          <li>Rule-engine безопасности на 4UDMI 2018 + AHA + Minnesota Code</li>
+          <li>Описание 4 production-моделей: rhythm, morphology, ST, AFib</li>
+          <li>Foundation backbones и LoRA-fine-tuning стратегия</li>
+          <li>6 адаптеров: SCP-ECG, HL7 aECG, DICOM, PDF, WFDB, EDF+</li>
+          <li>Безопасность: TLS 1.3, AES-256-GCM, HSM, immutable audit log</li>
+          <li>Производительность: p95 ≤ 15 сек, 99,5% SLA</li>
+        </ul>
+        <h2>Получить whitepaper</h2>
+        <p>Запрос через <a href="mailto:investors@ecg-reader.com?subject=ECG%20Reader%20whitepaper">investors@ecg-reader.com</a> с подписанным NDA.</p>
+      </article>
+    </div>
+  </main>
+  <footer class="foot"><div class="container"><p class="foot-disc" style="margin: 0;">© 2025–2026 Center Group Company.</p></div></footer>
+  <script src="../assets/i18n.js"></script>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

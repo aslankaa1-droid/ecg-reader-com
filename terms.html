@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0e1a" />
+  <title>Terms of Service · ECG Reader</title>
+  <meta name="description" content="Условия использования сервиса ECG Reader. CDS / SaMD Class 2б. Не заменяет заключение лечащего врача." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="svg/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Cairo:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/legal.css" />
+</head>
+<body>
+  <header class="nav" role="banner">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <svg class="mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16 L8 16 L11 8 L15 24 L18 12 L21 18 L24 16 L30 16"/></svg>
+        <span>ECG Reader</span><span class="tag">AI</span>
+      </a>
+      <div class="nav-tools" style="margin-inline-start: auto;">
+        <div class="menu" id="theme-menu">
+          <button class="menu-trigger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><span id="theme-current">Dark</span></button>
+          <div class="menu-list" id="theme-list"></div>
+        </div>
+        <div class="menu" id="lang-menu">
+          <button class="menu-trigger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg><span id="lang-current">RU</span></button>
+          <div class="menu-list" id="lang-list"></div>
+        </div>
+        <a href="index.html" class="btn btn-ghost btn-sm">← На главную</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="legal-page">
+    <div class="container">
+      <div class="legal-hero">
+        <span class="legal-eyebrow">Legal · ToS · CDS / SaMD</span>
+        <h1>Terms of Service</h1>
+        <div class="legal-meta">
+          <span><strong>Документ</strong> v1.0</span>
+          <span><strong>Effective</strong> Q4 2027</span>
+          <span><strong>Обновлено</strong> 2026-06-03</span>
+          <span><strong>Сервис</strong> ECG Reader</span>
+        </div>
+        <div class="legal-summary">
+          <strong>Главное.</strong> Сервис представляет собой <em>систему поддержки принятия клинических решений</em> (CDS) и медицинское программное обеспечение класса 2б (SaMD). Сервис <strong>не заменяет</strong> заключение лечащего врача — финальное диагностическое решение всегда остаётся за квалифицированным медицинским специалистом.
+        </div>
+      </div>
+
+      <div class="legal-grid">
+        <aside class="toc">
+          <h5>Содержание</h5>
+          <ul>
+            <li><a href="#scope">1. Назначение сервиса</a></li>
+            <li><a href="#users">2. Пользователи</a></li>
+            <li><a href="#use">3. Допустимое использование</a></li>
+            <li><a href="#clinical">4. Клиническая ответственность</a></li>
+            <li><a href="#liability">5. Ответственность</a></li>
+            <li><a href="#sla">6. SLA и доступность</a></li>
+            <li><a href="#ip">7. Интеллектуальная собственность</a></li>
+            <li><a href="#term">8. Срок действия и расторжение</a></li>
+            <li><a href="#law">9. Применимое право</a></li>
+            <li><a href="#contact">10. Контакты</a></li>
+          </ul>
+        </aside>
+
+        <article class="legal-body">
+
+          <section id="scope">
+            <h2>1. Назначение сервиса</h2>
+            <p><strong>ECG Reader</strong> — клиническая система поддержки принятия решений (CDS) на основе двойного независимого AI-консенсуса для интерпретации 12-канальной ЭКГ. Класс медицинского изделия — <strong>2б</strong> (РФ) / <strong>IIb</strong> (EU MDR) / <strong>510(k)</strong> (FDA).</p>
+            <p>Сервис формирует:</p>
+            <ul>
+              <li>Псевдонимизированные клинические заключения с уровнем уверенности консенсуса (K)</li>
+              <li>Safety-overrides по жизнеугрожающим состояниям (4UDMI 2018 / AHA / Minnesota Code)</li>
+              <li>Маршрутизация к врачу по уровню расхождения движков</li>
+              <li>Аудит-trail каждого запроса</li>
+            </ul>
+          </section>
+
+          <section id="users">
+            <h2>2. Пользователи</h2>
+            <p>Сервис доступен только зарегистрированным медицинским организациям и квалифицированным медицинским специалистам с действующей лицензией. Самостоятельная диагностика пациентами через сервис не предусмотрена.</p>
+          </section>
+
+          <section id="use">
+            <h2>3. Допустимое использование</h2>
+            <ul>
+              <li>Использование исключительно в клиническом контексте</li>
+              <li>Соблюдение информированного согласия пациента согласно EU AI Act 2024 ст. 13</li>
+              <li>Уведомление пациента о применении AI-системы</li>
+              <li>Сохранение клинического обоснования и финального решения в МИС</li>
+              <li>Запрет на использование заключений для автоматического принятия решений без участия врача</li>
+            </ul>
+          </section>
+
+          <section id="clinical">
+            <h2>4. Клиническая ответственность</h2>
+            <blockquote>
+              <strong>Финальная диагностическая ответственность всегда лежит на лечащем враче.</strong> Сервис предоставляет рекомендации и инструменты поддержки решений, но не является автономным диагностом.
+            </blockquote>
+            <p>Заказчик гарантирует, что:</p>
+            <ul>
+              <li>Все пользователи прошли обучение по работе с сервисом</li>
+              <li>Каждое заключение подписывается врачом и сохраняется в МИС</li>
+              <li>Случаи безопасности (safety overrides) обрабатываются по утверждённому клиническому протоколу</li>
+              <li>Расхождения с заключением врача документируются для PMCF</li>
+            </ul>
+          </section>
+
+          <section id="liability">
+            <h2>5. Ответственность</h2>
+            <p>Оператор несёт ответственность за корректность работы программного обеспечения в соответствии с заявленными спецификациями и сертификацией. Оператор <strong>не несёт ответственности</strong> за:</p>
+            <ul>
+              <li>Клинические решения, принятые врачом на основании заключения сервиса</li>
+              <li>Качество исходных ЭКГ-данных, переданных заказчиком</li>
+              <li>Соблюдение пациентом назначений врача</li>
+              <li>Косвенные убытки, упущенную выгоду</li>
+            </ul>
+            <p>Совокупная ответственность ограничена суммой годовых выплат заказчика за сервис.</p>
+          </section>
+
+          <section id="sla">
+            <h2>6. SLA и доступность</h2>
+            <ul>
+              <li><strong>99,5%</strong> — целевая доступность сервиса (~3,65 часа простоя/мес)</li>
+              <li><strong>p95 ≤ 15 секунд</strong> — end-to-end время обработки одной ЭКГ</li>
+              <li><strong>p99 ≤ 30 секунд</strong></li>
+              <li><strong>RTO ≤ 4 часа · RPO ≤ 1 час</strong> — целевые показатели DR</li>
+              <li><strong>24×7</strong> мониторинг + дежурство on-call</li>
+            </ul>
+            <p>Кредиты по SLA выплачиваются согласно DPA при превышении лимитов простоя.</p>
+          </section>
+
+          <section id="ip">
+            <h2>7. Интеллектуальная собственность</h2>
+            <ul>
+              <li>Программное обеспечение, модели, документация — собственность Center Group Company LLC</li>
+              <li>Заказчику предоставляется неисключительная лицензия на срок действия договора</li>
+              <li>Псевдонимизированные данные, обработанные через сервис, могут использоваться для continuous learning согласно DPA</li>
+              <li>Запрет на reverse engineering, копирование моделей, попытки извлечения обучающих данных</li>
+            </ul>
+          </section>
+
+          <section id="term">
+            <h2>8. Срок действия и расторжение</h2>
+            <p>Условия становятся обязательными с момента подписания DPA. Расторжение — по соглашению сторон, при существенном нарушении или по уведомлению за 90 дней. При расторжении заказчик получает экспорт своих данных в течение 30 дней, затем данные удаляются согласно политике хранения.</p>
+          </section>
+
+          <section id="law">
+            <h2>9. Применимое право</h2>
+            <p>Для заказчиков из РФ применяется законодательство Российской Федерации. Споры рассматриваются Арбитражным судом г. Москвы. Для зарубежных заказчиков применимое право указывается в локальном договоре (типично — Цюрих, Швейцария, ICC arbitration).</p>
+          </section>
+
+          <section id="contact">
+            <h2>10. Контакты</h2>
+            <ul>
+              <li><strong>Customer Success:</strong> <a href="mailto:support@ecg-reader.com">support@ecg-reader.com</a></li>
+              <li><strong>Legal:</strong> <a href="mailto:legal@ecg-reader.com">legal@ecg-reader.com</a></li>
+              <li><strong>Vigilance (медицинский надзор):</strong> <a href="mailto:vigilance@ecg-reader.com">vigilance@ecg-reader.com</a></li>
+              <li><strong>Founder & CEO:</strong> <a href="mailto:aslankaa@yandex.ru">aslankaa@yandex.ru</a></li>
+            </ul>
+          </section>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="container">
+      <p class="foot-disc" style="margin: 0;"><strong>Дисклеймер.</strong> ECG Reader — CDS / SaMD. Не является автономным диагностом и не заменяет заключение лечащего врача. Регистрация в качестве медицинского изделия Class 2б в процессе.</p>
+      <p class="foot-disc" style="margin-top: var(--sp-3);">© 2025–2026 Center Group Company · ИС ECG Reader.</p>
+    </div>
+  </footer>
+
+  <script src="assets/i18n.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

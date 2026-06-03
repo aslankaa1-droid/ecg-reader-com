@@ -1,0 +1,10 @@
+# robots.txt — ecg-reader.com
+# ECG Reader — Center Group Company
+
+User-agent: *
+Allow: /
+
+# Технические / приватные источники не индексируем
+Disallow: /svg/og-source.html
+
+Sitemap: https://ecg-reader.com/sitemap.xml

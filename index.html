@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0e1a" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>ECG Reader — Dual-AI consensus для интерпретации ЭКГ</title>
+  <meta name="description" content="Клинический сервис AI-ассистированной интерпретации ЭКГ. Двойной независимый AI-консенсус. Rule-engine безопасности. CDS / SaMD Class 2б. 152-ФЗ резидентность." />
+  <link rel="canonical" href="https://ecg-reader.com/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="ECG Reader / Center Group Company" />
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="ECG Reader" />
+  <meta property="og:title" content="ECG Reader — Dual-AI consensus" />
+  <meta property="og:description" content="Каждые 8 секунд кто-то получает неправильное заключение ЭКГ. Мы делаем так, чтобы такое больше никогда не случилось." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ecg-reader.com/" />
+  <meta property="og:image" content="https://ecg-reader.com/og-image.png" />
+  <meta property="og:image:secure_url" content="https://ecg-reader.com/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="ECG Reader — двойной AI-консенсус для интерпретации ЭКГ" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:locale:alternate" content="zh_CN" />
+  <meta property="og:locale:alternate" content="ar_AR" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ECG Reader — Dual-AI consensus для интерпретации ЭКГ" />
+  <meta name="twitter:description" content="Два независимых ИИ + rule-engine безопасности. CDS / SaMD Class 2б. 152-ФЗ резидентность." />
+  <meta name="twitter:image" content="https://ecg-reader.com/og-image.png" />
+  <meta name="twitter:image:alt" content="ECG Reader" />
+
+  <link rel="icon" type="image/svg+xml" href="svg/favicon.svg" />
+  <link rel="apple-touch-icon" href="svg/favicon.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Cairo:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+  <!-- ================== NAV ================== -->
+  <header class="nav" role="banner">
+    <div class="nav-inner">
+      <a href="#top" class="nav-brand" aria-label="ECG Reader">
+        <svg class="mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 16 L8 16 L11 8 L15 24 L18 12 L21 18 L24 16 L30 16" />
+        </svg>
+        <span>ECG Reader</span>
+        <span class="tag">AI</span>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="#problem"    data-i18n="nav.problem">Проблема</a></li>
+          <li><a href="#solution"   data-i18n="nav.solution">Решение</a></li>
+          <li><a href="#technology" data-i18n="nav.tech">Технология</a></li>
+          <li><a href="#validation" data-i18n="nav.validation">Валидация</a></li>
+          <li><a href="#product"    data-i18n="nav.product">Продукт</a></li>
+          <li><a href="#team"       data-i18n="nav.team">Команда</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-tools">
+        <div class="menu" id="theme-menu">
+          <button class="menu-trigger" aria-haspopup="menu" aria-label="Theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+            </svg>
+            <span id="theme-current">Dark</span>
+          </button>
+          <div class="menu-list" id="theme-list" role="menu"></div>
+        </div>
+        <div class="menu" id="lang-menu">
+          <button class="menu-trigger" aria-haspopup="menu" aria-label="Language">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>
+            </svg>
+            <span id="lang-current">RU</span>
+          </button>
+          <div class="menu-list" id="lang-list" role="menu"></div>
+        </div>
+        <a href="#contact" class="btn btn-primary btn-sm" data-i18n="nav.cta">Запросить демо</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ================== HERO ================== -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-text reveal">
+            <span class="hero-tag"><span class="dot"></span><span data-i18n="hero.tag">Series A · разработка · Q1 2029</span></span>
+            <h1 class="hero-title">
+              <span data-i18n="hero.title.pre">Спасаем жизни через</span>
+              <em data-i18n="hero.title.accent">двойной AI-консенсус</em>
+              <span data-i18n="hero.title.post">на ЭКГ.</span>
+            </h1>
+            <p class="hero-lead" data-i18n="hero.lead">ECG Reader — клинический сервис интерпретации ЭКГ с двумя независимыми AI-движками и rule-engine безопасности. Если движки расходятся — пациент сразу попадает к врачу. CDS / SaMD Class 2б.</p>
+            <div class="hero-cta">
+              <a href="#contact"  class="btn btn-primary" data-i18n="hero.cta.primary">Запросить демо</a>
+              <a href="docs/ECG-Reader_Pitch_Deck.html" class="btn btn-ghost" target="_blank" rel="noopener" data-i18n="hero.cta.secondary">Скачать pitch deck</a>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal delay-1" aria-hidden="true">
+            <div class="hero-visual-bg"></div>
+            <svg class="ecg-wave" viewBox="0 0 520 360" fill="none">
+              <defs>
+                <linearGradient id="ecgGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%"   stop-color="currentColor" stop-opacity="0.2"/>
+                  <stop offset="40%"  stop-color="currentColor" stop-opacity="1"/>
+                  <stop offset="60%"  stop-color="currentColor" stop-opacity="1"/>
+                  <stop offset="100%" stop-color="currentColor" stop-opacity="0.2"/>
+                </linearGradient>
+              </defs>
+              <!-- grid bg -->
+              <g stroke="currentColor" stroke-opacity="0.05" stroke-width="0.5">
+                <path d="M0 60 H520 M0 120 H520 M0 180 H520 M0 240 H520 M0 300 H520"/>
+                <path d="M60 0 V360 M120 0 V360 M180 0 V360 M240 0 V360 M300 0 V360 M360 0 V360 M420 0 V360 M480 0 V360"/>
+              </g>
+              <!-- ECG trace · two PQRST complexes -->
+              <path class="trace" d="
+                M 0 180
+                L 40 180
+                L 50 170 L 60 180
+                L 80 180
+                L 90 150 L 100 250 L 110 80 L 120 220 L 130 180
+                L 160 180
+                L 180 160 L 200 180
+                L 230 180
+                L 240 170 L 250 180
+                L 280 180
+                L 290 150 L 300 250 L 310 80 L 320 220 L 330 180
+                L 360 180
+                L 380 160 L 400 180
+                L 430 180
+                L 440 170 L 450 180
+                L 520 180
+              " stroke="url(#ecgGrad)"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat reveal">
+            <div class="val"><em data-i18n="hero.stat1.val">0,992</em></div>
+            <div class="lbl" data-i18n="hero.stat1.lbl">Sensitivity STEMI</div>
+          </div>
+          <div class="hero-stat reveal delay-1">
+            <div class="val"><em data-i18n="hero.stat2.val">15 сек</em></div>
+            <div class="lbl" data-i18n="hero.stat2.lbl">End-to-end</div>
+          </div>
+          <div class="hero-stat reveal delay-2">
+            <div class="val"><em data-i18n="hero.stat3.val">27</em></div>
+            <div class="lbl" data-i18n="hero.stat3.lbl">Классов SNOMED-CT</div>
+          </div>
+          <div class="hero-stat reveal delay-3">
+            <div class="val"><em data-i18n="hero.stat4.val">15</em></div>
+            <div class="lbl" data-i18n="hero.stat4.lbl">Языков UI</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== PROBLEM ================== -->
+    <section class="section" id="problem">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow" data-i18n="prob.eyebrow">Контекст</span>
+          <h2 class="section-title">
+            <span data-i18n="prob.title.pre">Каждые </span><em data-i18n="prob.title.em">8 секунд </em><span data-i18n="prob.title.post">кто-то получает неверное заключение ЭКГ.</span>
+          </h2>
+          <p class="section-lead" data-i18n="prob.lead">У 35% пациентов с фибрилляцией предсердий диагноз пропускают.</p>
+        </div>
+
+        <div class="grid-4">
+          <div class="stat-card red reveal">
+            <div class="stat-val" data-i18n="prob.c1.v">8–35%</div>
+            <div class="stat-label" data-i18n="prob.c1.l">Ошибок интерпретации</div>
+            <div class="stat-note" data-i18n="prob.c1.n">AHA Scientific Statement 2020 — 18 публикаций</div>
+          </div>
+          <div class="stat-card red reveal delay-1">
+            <div class="stat-val" data-i18n="prob.c2.v">24%</div>
+            <div class="stat-label" data-i18n="prob.c2.l">STEMI пропускают</div>
+            <div class="stat-note" data-i18n="prob.c2.n">ED-резиденты — необратимый ущерб миокарду</div>
+          </div>
+          <div class="stat-card red reveal delay-2">
+            <div class="stat-val" data-i18n="prob.c3.v">14%</div>
+            <div class="stat-label" data-i18n="prob.c3.l">AV-блок II–III</div>
+            <div class="stat-note" data-i18n="prob.c3.n">ED-врачи — пропуск ведёт к внезапной смерти</div>
+          </div>
+          <div class="stat-card red reveal delay-3">
+            <div class="stat-val" data-i18n="prob.c4.v">75%</div>
+            <div class="stat-label" data-i18n="prob.c4.l">Long QT не диагностируют</div>
+            <div class="stat-note" data-i18n="prob.c4.n">Правильно измеряют только 25–40% врачей</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== SOLUTION ================== -->
+    <section class="section" id="solution">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow" data-i18n="sol.eyebrow">Решение</span>
+          <h2 class="section-title">
+            <span data-i18n="sol.title.pre">Два независимых AI.</span> <em data-i18n="sol.title.em">Если они не согласны — </em><span data-i18n="sol.title.post">пациента сразу отправляют к врачу.</span>
+          </h2>
+          <p class="section-lead" data-i18n="sol.lead"></p>
+        </div>
+
+        <div class="flow reveal">
+          <div class="flow-engine engine-a">
+            <div class="label" data-i18n="sol.engineA.lbl">AI Engine A</div>
+            <div class="name" data-i18n="sol.engineA.name">Собственный</div>
+            <div class="desc" data-i18n="sol.engineA.desc"></div>
+          </div>
+          <div class="flow-mid">
+            <div class="consensus" data-i18n="sol.mid">Consensus Engine + Rule-engine</div>
+          </div>
+          <div class="flow-engine engine-b">
+            <div class="label" data-i18n="sol.engineB.lbl">AI Engine B</div>
+            <div class="name" data-i18n="sol.engineB.name">Партнёрский</div>
+            <div class="desc" data-i18n="sol.engineB.desc"></div>
+          </div>
+        </div>
+
+        <div class="verdicts">
+          <div class="verdict reveal">
+            <span class="verdict-badge consensus" data-i18n="sol.v1.b">Consensus</span>
+            <h4 data-i18n="sol.v1.k">K ≥ 0,90</h4>
+            <p data-i18n="sol.v1.d"></p>
+          </div>
+          <div class="verdict reveal delay-1">
+            <span class="verdict-badge caution" data-i18n="sol.v2.b">Caution</span>
+            <h4 data-i18n="sol.v2.k">0,80 ≤ K < 0,90</h4>
+            <p data-i18n="sol.v2.d"></p>
+          </div>
+          <div class="verdict reveal delay-2">
+            <span class="verdict-badge alert" data-i18n="sol.v3.b">Alert</span>
+            <h4 data-i18n="sol.v3.k">K < 0,80 или safety-override</h4>
+            <p data-i18n="sol.v3.d"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== WHY NOW ================== -->
+    <section class="section compact" id="why-now">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow" data-i18n="why.eyebrow">Окно возможностей</span>
+          <h2 class="section-title">
+            <span data-i18n="why.title.pre">Почему </span><em data-i18n="why.title.em">именно сейчас</em><span data-i18n="why.title.post">.</span>
+          </h2>
+          <p class="section-lead" data-i18n="why.lead"></p>
+        </div>
+        <div class="grid-2">
+          <div class="card reveal">
+            <h3 data-i18n="why.col1.t">Регуляторика 2024–2025</h3>
+            <ul class="feature-list">
+              <li data-i18n="why.col1.l1"></li>
+              <li data-i18n="why.col1.l2"></li>
+              <li data-i18n="why.col1.l3"></li>
+              <li data-i18n="why.col1.l4"></li>
+            </ul>
+          </div>
+          <div class="card reveal delay-1">
+            <h3 data-i18n="why.col2.t">Рынок созрел</h3>
+            <ul class="feature-list">
+              <li data-i18n="why.col2.l1"></li>
+              <li data-i18n="why.col2.l2"></li>
+              <li data-i18n="why.col2.l3"></li>
+              <li data-i18n="why.col2.l4"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== MARKET ================== -->
+    <section class="section compact" id="market">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow" data-i18n="mkt.eyebrow">Рынок</span>
+          <h2 class="section-title">
+            <span data-i18n="mkt.title.pre">TAM </span><em data-i18n="mkt.title.em">$15–30 млрд </em><span data-i18n="mkt.title.post">к 2030.</span>
+          </h2>
+          <p class="section-lead" data-i18n="mkt.lead"></p>
+        </div>
+        <div class="grid-4">
+          <div class="stat-card reveal">
+            <div class="stat-val" data-i18n="mkt.c1.v">$15–30 млрд</div>
+            <div class="stat-label" data-i18n="mkt.c1.l">TAM Global</div>
+            <div class="stat-note" data-i18n="mkt.c1.n"></div>
+          </div>
+          <div class="stat-card reveal delay-1">
+            <div class="stat-val" data-i18n="mkt.c2.v">€2–4 млрд</div>
+            <div class="stat-label" data-i18n="mkt.c2.l">TAM EU</div>
+            <div class="stat-note" data-i18n="mkt.c2.n"></div>
+          </div>
+          <div class="stat-card reveal delay-2">
+            <div class="stat-val" data-i18n="mkt.c3.v">₽2,5 млрд</div>
+            <div class="stat-label" data-i18n="mkt.c3.l">TAM РФ</div>
+            <div class="stat-note" data-i18n="mkt.c3.n"></div>
+          </div>
+          <div class="stat-card green reveal delay-3">
+            <div class="stat-val" data-i18n="mkt.c4.v">₽120–300 М</div>
+            <div class="stat-label" data-i18n="mkt.c4.l">SOM РФ Y3</div>
+            <div class="stat-note" data-i18n="mkt.c4.n"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== PRODUCT ================== -->
+    <section class="section" id="product">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow" data-i18n="prod.eyebrow">Продукт</span>
+          <h2 class="section-title">
+            <span data-i18n="prod.title.pre">Четыре </span><em data-i18n="prod.title.em">канала </em><span data-i18n="prod.title.post">одна платформа.</span>
+          </h2>
+          <p class="section-lead" data-i18n="prod.lead"></p>
+        </div>
+
+        <div class="grid-4">
+          <div class="card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4M21 9V5a2 2 0 0 0-2-2h-4M3 15v4a2 2 0 0 0 2 2h4M15 21h4a2 2 0 0 0 2-2v-4"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h3 data-i18n="prod.p1.h">Backend SaaS API</h3>
+            <p data-i18n="prod.p1.d"></p>
+          </div>
+          <div class="card reveal delay-1">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+            </div>
+            <h3 data-i18n="prod.p2.h">Mobile / Desktop App</h3>
+            <p data-i18n="prod.p2.d"></p>
+          </div>
+          <div class="card reveal delay-2">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+            </div>
+            <h3 data-i18n="prod.p3.h">Clinic Portal</h3>
+            <p data-i18n="prod.p3.d"></p>
+          </div>
+          <div class="card reveal delay-3">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+            </div>
+            <h3 data-i18n="prod.p4.h">OEM SDK</h3>
+            <p data-i18n="prod.p4.d"></p>
+          </div>
+        </div>
+
+        <p class="reveal" style="margin-top: var(--sp-6); text-align: center; color: var(--text-dim); font-size: 15px;" data-i18n="prod.langs"></p>
+      </div>
+    </section>
+
+    <!-- ================== TECHNOLOGY ================== -->
+    <section class="section" id="technology">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow" data-i18n="tech.eyebrow">Технология</span>
+          <h2 class="section-title">
+            <span data-i18n="tech.title.pre">Production-grade </span><em data-i18n="tech.title.em">ML stack </em><span data-i18n="tech.title.post">+ инфраструктура.</span>
+          </h2>
+          <p class="section-lead" data-i18n="tech.lead"></p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card reveal">
+            <h3 data-i18n="tech.col1.t">Инфраструктура</h3>
+            <ul class="feature-list">
+              <li data-i18n="tech.col1.l1"></li>
+              <li data-i18n="tech.col1.l2"></li>
+              <li data-i18n="tech.col1.l3"></li>
+              <li data-i18n="tech.col1.l4"></li>
+              <li data-i18n="tech.col1.l5"></li>
+            </ul>
+          </div>
+          <div class="card reveal delay-1">
+            <h3 data-i18n="tech.col2.t">ML stack</h3>
+            <ul class="feature-list">
+              <li data-i18n="tech.col2.l1"></li>
+              <li data-i18n="tech.col2.l2"></li>
+              <li data-i18n="tech.col2.l3"></li>
+              <li data-i18n="tech.col2.l4"></li>
+              <li data-i18n="tech.col2.l5"></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="evidence-row reveal">
+          <div class="ev">
+            <div class="val" data-i18n="tech.ev1.v">3,22 М</div>
+            <div class="lbl" data-i18n="tech.ev1.l">ЭКГ открытых корпусов</div>
+          </div>
+          <div class="ev">
+            <div class="val" data-i18n="tech.ev2.v">18</div>
+            <div class="lbl" data-i18n="tech.ev2.l">Публикаций об ошибках</div>
+          </div>
+          <div class="ev">
+            <div class="val" data-i18n="tech.ev3.v">345</div>
+            <div class="lbl" data-i18n="tech.ev3.l">Единиц материалов</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== VALIDATION ================== -->
+    <section class="section" id="validation">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow" data-i18n="val.eyebrow">Клиническая валидация</span>
+          <h2 class="section-title">
+            <span data-i18n="val.title.pre">Целевые </span><em data-i18n="val.title.em">метрики </em><span data-i18n="val.title.post">пилотов DECIDE-AI.</span>
+          </h2>
+          <p class="section-lead" data-i18n="val.lead"></p>
+        </div>
+
+        <div class="table-wrap reveal">
+          <table class="metric">
+            <thead>
+              <tr>
+                <th data-i18n="val.t.nos">Нозология</th>
+                <th data-i18n="val.t.ks">ECG Reader Sensitivity</th>
+                <th data-i18n="val.t.bench">Бенчмарк врачей</th>
+                <th data-i18n="val.t.delta">Delta</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n="val.r1.n">STEMI</td>
+                <td class="good" data-i18n="val.r1.k">0,992</td>
+                <td data-i18n="val.r1.b">76% (ED-резиденты)</td>
+                <td class="good" data-i18n="val.r1.d">+23 п.п.</td>
+              </tr>
+              <tr>
+                <td data-i18n="val.r2.n">AFib</td>
+                <td class="good" data-i18n="val.r2.k">0,974</td>
+                <td data-i18n="val.r2.b">80% (GP-врачи)</td>
+                <td class="good" data-i18n="val.r2.d">+17 п.п.</td>
+              </tr>
+              <tr>
+                <td data-i18n="val.r3.n">AV-блок III степени</td>
+                <td class="good" data-i18n="val.r3.k">1,000</td>
+                <td data-i18n="val.r3.b">86% (ED-врачи)</td>
+                <td class="good" data-i18n="val.r3.d">+14 п.п.</td>
+              </tr>
+              <tr>
+                <td data-i18n="val.r4.n">Long QT</td>
+                <td class="good" data-i18n="val.r4.k">0,997</td>
+                <td data-i18n="val.r4.b">25–40% (общая медицина)</td>
+                <td class="good" data-i18n="val.r4.d">+60 п.п.</td>
+              </tr>
+              <tr>
+                <td data-i18n="val.r5.n">Macro F1 (27 классов)</td>
+                <td class="good" data-i18n="val.r5.k">0,65</td>
+                <td data-i18n="val.r5.b">CinC Challenge 2020 median 0,52</td>
+                <td class="good" data-i18n="val.r5.d">+25%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== BUSINESS ================== -->
+    <section class="section" id="business">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow" data-i18n="biz.eyebrow">Коммерческая модель</span>
+          <h2 class="section-title">
+            <span data-i18n="biz.title.pre">Tiered SaaS · </span><em data-i18n="biz.title.em">LTV/CAC 75× </em><span data-i18n="biz.title.post">к Y3.</span>
+          </h2>
+          <p class="section-lead" data-i18n="biz.lead"></p>
+        </div>
+
+        <div class="pricing">
+          <div class="tier reveal">
+            <div class="name" data-i18n="biz.t1.n">Sandbox</div>
+            <div class="price"><span data-i18n="biz.t1.p">30 ₽</span><span class="unit" data-i18n="biz.t1.u">/ ЭКГ</span></div>
+            <div class="vol" data-i18n="biz.t1.v">До 100/мес</div>
+          </div>
+          <div class="tier reveal delay-1">
+            <div class="name" data-i18n="biz.t2.n">Clinic</div>
+            <div class="price"><span data-i18n="biz.t2.p">25 ₽</span><span class="unit" data-i18n="biz.t2.u">/ ЭКГ</span></div>
+            <div class="vol" data-i18n="biz.t2.v">2 000/мес</div>
+          </div>
+          <div class="tier featured reveal delay-2">
+            <div class="name" data-i18n="biz.t3.n">Hospital</div>
+            <div class="price"><span data-i18n="biz.t3.p">18 ₽</span><span class="unit" data-i18n="biz.t3.u">/ ЭКГ</span></div>
+            <div class="vol" data-i18n="biz.t3.v">20 000/мес</div>
+          </div>
+          <div class="tier reveal delay-3">
+            <div class="name" data-i18n="biz.t4.n">Federal</div>
+            <div class="price"><span data-i18n="biz.t4.p">от 12 ₽</span><span class="unit" data-i18n="biz.t4.u">/ ЭКГ</span></div>
+            <div class="vol" data-i18n="biz.t4.v">Не ограничено</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== TEAM ================== -->
+    <section class="section" id="team">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow" data-i18n="team.eyebrow">Команда</span>
+          <h2 class="section-title">
+            <span data-i18n="team.title.pre">Сильное </span><em data-i18n="team.title.em">лидерство</em><span data-i18n="team.title.post">.</span>
+          </h2>
+          <p class="section-lead" data-i18n="team.lead"></p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card reveal accent">
+            <h3 data-i18n="team.m1.n">Аслан Каа</h3>
+            <h4 data-i18n="team.m1.r">Founder & CEO</h4>
+            <p data-i18n="team.m1.d"></p>
+          </div>
+          <div class="card reveal delay-1">
+            <h3 data-i18n="team.m2.n">CTO / ML Lead</h3>
+            <h4 data-i18n="team.m2.r">Hiring · Q3 2026</h4>
+            <p data-i18n="team.m2.d"></p>
+          </div>
+          <div class="card reveal delay-2">
+            <h3 data-i18n="team.m3.n">Clinical Director</h3>
+            <h4 data-i18n="team.m3.r">Hiring · Q3 2026</h4>
+            <p data-i18n="team.m3.d"></p>
+          </div>
+          <div class="card reveal">
+            <h3 data-i18n="team.m4.n">CFO</h3>
+            <h4 data-i18n="team.m4.r">Hiring · Q4 2026</h4>
+            <p data-i18n="team.m4.d"></p>
+          </div>
+          <div class="card reveal delay-1">
+            <h3 data-i18n="team.m5.n">Регуляторный директор</h3>
+            <h4 data-i18n="team.m5.r">Hiring · Q3 2026</h4>
+            <p data-i18n="team.m5.d"></p>
+          </div>
+          <div class="card reveal delay-2">
+            <h3 data-i18n="team.m6.n">Advisory Board</h3>
+            <h4 data-i18n="team.m6.r">15 KOL · формируется</h4>
+            <p data-i18n="team.m6.d"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== ROADMAP ================== -->
+    <section class="section compact" id="roadmap">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow" data-i18n="road.eyebrow">Roadmap</span>
+          <h2 class="section-title">
+            <span data-i18n="road.title.pre">Три года до </span><em data-i18n="road.title.em">exit window</em><span data-i18n="road.title.post">.</span>
+          </h2>
+          <p class="section-lead" data-i18n="road.lead"></p>
+        </div>
+
+        <div class="roadmap">
+          <div class="road-year reveal">
+            <div class="year" data-i18n="road.y1.y">Y1 · 2029</div>
+            <h3 data-i18n="road.y1.t">РФ Scale + EU Entry</h3>
+            <ul class="feature-list">
+              <li data-i18n="road.y1.l1"></li>
+              <li data-i18n="road.y1.l2"></li>
+              <li data-i18n="road.y1.l3"></li>
+              <li data-i18n="road.y1.l4"></li>
+              <li data-i18n="road.y1.l5"></li>
+            </ul>
+          </div>
+          <div class="road-year reveal delay-1">
+            <div class="year" data-i18n="road.y2.y">Y2 · 2030</div>
+            <h3 data-i18n="road.y2.t">US Launch</h3>
+            <ul class="feature-list">
+              <li data-i18n="road.y2.l1"></li>
+              <li data-i18n="road.y2.l2"></li>
+              <li data-i18n="road.y2.l3"></li>
+              <li data-i18n="road.y2.l4"></li>
+              <li data-i18n="road.y2.l5"></li>
+            </ul>
+          </div>
+          <div class="road-year reveal delay-2">
+            <div class="year" data-i18n="road.y3.y">Y3 · 2031</div>
+            <h3 data-i18n="road.y3.t">Scale to Profitable</h3>
+            <ul class="feature-list">
+              <li data-i18n="road.y3.l1"></li>
+              <li data-i18n="road.y3.l2"></li>
+              <li data-i18n="road.y3.l3"></li>
+              <li data-i18n="road.y3.l4"></li>
+              <li data-i18n="road.y3.l5"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== ASK ================== -->
+    <section class="section" id="ask">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow" data-i18n="ask.eyebrow">Series A</span>
+          <h2 class="section-title">
+            <span data-i18n="ask.title.pre">Привлекаем </span><em data-i18n="ask.title.em">Series A</em><span data-i18n="ask.title.post">.</span>
+          </h2>
+        </div>
+
+        <div class="ask-block reveal">
+          <div class="amount" data-i18n="ask.amount">$5–10 M</div>
+          <div class="label" data-i18n="ask.label">Series A · pre-money $25–40 M</div>
+          <div class="detail" data-i18n="ask.detail">20–25% equity · 1× non-participating preferred · pro-rata rights · target closing Q1 2029</div>
+        </div>
+
+        <h3 style="font-family: var(--font-display); font-weight: 600; font-size: 28px; margin: var(--sp-7) 0 var(--sp-5);" class="reveal" data-i18n="ask.uof.t">Use of Proceeds</h3>
+        <div class="use-of-funds">
+          <div class="uof reveal">
+            <div class="pct" data-i18n="ask.uof1.p">40%</div>
+            <div class="lbl" data-i18n="ask.uof1.l"></div>
+          </div>
+          <div class="uof reveal delay-1">
+            <div class="pct" data-i18n="ask.uof2.p">25%</div>
+            <div class="lbl" data-i18n="ask.uof2.l"></div>
+          </div>
+          <div class="uof reveal delay-2">
+            <div class="pct" data-i18n="ask.uof3.p">20%</div>
+            <div class="lbl" data-i18n="ask.uof3.l"></div>
+          </div>
+          <div class="uof reveal delay-3">
+            <div class="pct" data-i18n="ask.uof4.p">15%</div>
+            <div class="lbl" data-i18n="ask.uof4.l"></div>
+          </div>
+        </div>
+
+        <p class="reveal" style="margin-top: var(--sp-7); font-size: 16px; color: var(--text-dim); max-width: 920px;" data-i18n="ask.exit"></p>
+      </div>
+    </section>
+
+    <!-- ================== CONTACT ================== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow" data-i18n="cnt.eyebrow">Контакт</span>
+          <h2 class="section-title">
+            <span data-i18n="cnt.title.pre">Постройте </span><em data-i18n="cnt.title.em">это с нами</em><span data-i18n="cnt.title.post">.</span>
+          </h2>
+          <p class="section-lead" data-i18n="cnt.lead"></p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-list">
+            <a href="mailto:aslankaa@yandex.ru?subject=ECG%20Reader%20%E2%80%94%20intro" class="contact-item reveal">
+              <span class="ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+              </span>
+              <span class="meta">
+                <span class="lbl" data-i18n="cnt.email.l">Email</span>
+                <span class="val" data-i18n="cnt.email.v">aslankaa@yandex.ru</span>
+              </span>
+            </a>
+            <a href="https://t.me/AslanKAA" target="_blank" rel="noopener" class="contact-item reveal delay-1">
+              <span class="ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4z"/></svg>
+              </span>
+              <span class="meta">
+                <span class="lbl" data-i18n="cnt.tel.l">Telegram / WhatsApp</span>
+                <span class="val" data-i18n="cnt.tel.v">+7 (XXX) XXX-XX-XX</span>
+              </span>
+            </a>
+            <a href="https://ecg-reader.com" class="contact-item reveal delay-2">
+              <span class="ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+              </span>
+              <span class="meta">
+                <span class="lbl" data-i18n="cnt.site.l">Сайт</span>
+                <span class="val" data-i18n="cnt.site.v">ecg-reader.com · в разработке</span>
+              </span>
+            </a>
+          </div>
+
+          <div class="contact-card reveal delay-1">
+            <h3 data-i18n="cnt.card.n">Аслан Каа</h3>
+            <div class="role" data-i18n="cnt.card.r">Founder & CEO · Center Group Company</div>
+            <p data-i18n="cnt.card.d"></p>
+            <a href="mailto:aslankaa@yandex.ru?subject=ECG%20Reader%20%E2%80%94%20intro" class="btn btn-primary" data-i18n="cnt.card.cta">Написать на email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================== FOOTER ================== -->
+  <footer class="foot">
+    <div class="container">
+      <div class="foot-grid">
+        <div>
+          <h5 data-i18n="ft.about.t">ECG Reader</h5>
+          <p data-i18n="ft.about.d"></p>
+        </div>
+        <div>
+          <h5 data-i18n="ft.nav.t">Навигация</h5>
+          <ul>
+            <li><a href="#solution"   data-i18n="ft.nav.l1">Решение</a></li>
+            <li><a href="#technology" data-i18n="ft.nav.l2">Технология</a></li>
+            <li><a href="#validation" data-i18n="ft.nav.l3">Валидация</a></li>
+            <li><a href="#roadmap"    data-i18n="ft.nav.l4">Roadmap</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 data-i18n="ft.legal.t">Юридическое</h5>
+          <ul>
+            <li><a href="privacy.html"     data-i18n="ft.legal.l1">Privacy Policy</a></li>
+            <li><a href="terms.html"       data-i18n="ft.legal.l2">Terms of Service</a></li>
+            <li><a href="disclosure.html"  data-i18n="ft.legal.l3">Раскрытие информации</a></li>
+            <li><a href="pd-consent.html"  data-i18n="ft.legal.l4">Согласие на обработку ПДн</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 data-i18n="ft.docs.t">Документация</h5>
+          <ul>
+            <li><a href="docs/ECG-Reader_Pitch_Deck.html" target="_blank" rel="noopener" data-i18n="ft.docs.l1">Pitch Deck</a></li>
+            <li><a href="docs/ECG-Reader_OnePager.html"   target="_blank" rel="noopener" data-i18n="ft.docs.l2">One-pager</a></li>
+            <li><a href="docs/whitepaper.html"            data-i18n="ft.docs.l3">Technical Whitepaper</a></li>
+            <li><a href="docs/clinical-evidence.html"     data-i18n="ft.docs.l4">Clinical Evidence Pack</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="foot-disc" data-i18n="ft.disc"></p>
+      <p class="foot-disc" style="margin-top: var(--sp-3);" data-i18n="ft.copy">© 2025–2026 Center Group Company · ИС ECG Reader. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <!-- ================== LEGAL BAR (152-ФЗ) ================== -->
+  <div class="legal-bar" id="legal-bar" role="status">
+    <span class="txt" data-i18n="legal.txt">Сайт не собирает персональные данные и не использует cookie-трекеры. Подробнее — в Privacy Policy.</span>
+    <button class="btn btn-ghost btn-sm" data-act="ok" data-i18n="legal.ok">Понятно</button>
+  </div>
+
+  <script src="assets/i18n.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
