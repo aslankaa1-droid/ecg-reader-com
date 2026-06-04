@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0e1a" />
+  <title>ECG Reader — установка приложения (Android)</title>
+  <meta name="description" content="Скачать и установить мобильное приложение ECG Reader для Android. AI-интерпретация ЭКГ (CDS / SaMD)." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta property="og:title" content="ECG Reader — приложение для Android" />
+  <meta property="og:description" content="Скачать APK и установить ECG Reader на Android." />
+  <meta property="og:image" content="https://ecg-reader.com/og-image.png" />
+  <meta property="og:url" content="https://ecg-reader.com/download/" />
+  <link rel="icon" type="image/svg+xml" href="../svg/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#0a0e1a; --bg-elev:#111827; --bg-2:#1a2235; --line:rgba(255,255,255,.09);
+      --line-2:rgba(255,255,255,.16); --text:#e6e9ef; --dim:#9ca3af; --muted:#6b7280;
+      --accent:#00d4ff; --accent-h:#4ae3ff; --green:#2dd4a0; --amber:#ffc857;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-text-size-adjust:100%}
+    body{
+      font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(900px 560px at 80% -10%, rgba(0,212,255,.12), transparent 60%),
+        radial-gradient(700px 480px at 0% 110%, rgba(0,212,255,.08), transparent 55%),
+        var(--bg);
+      color:var(--text); min-height:100vh; line-height:1.6;
+      -webkit-font-smoothing:antialiased; padding:0 20px;
+    }
+    .wrap{max-width:680px;margin:0 auto;padding:48px 0 64px}
+    .brand{display:flex;align-items:center;gap:12px;margin-bottom:40px}
+    .brand .mark{width:40px;height:40px;border:2px solid rgba(0,212,255,.5);border-radius:11px;
+      display:flex;align-items:center;justify-content:center;background:rgba(0,212,255,.07)}
+    .brand .mark svg{width:24px;height:24px}
+    .brand .name{font-size:22px;font-weight:700;letter-spacing:-.01em}
+    .brand .tag{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--accent);
+      border:1px solid rgba(0,212,255,.4);border-radius:999px;padding:3px 9px;letter-spacing:.12em}
+    .lang{margin-left:auto;display:flex;gap:6px}
+    .lang button{background:transparent;border:1px solid var(--line);color:var(--dim);
+      font:600 12px Inter;padding:6px 11px;border-radius:8px;cursor:pointer}
+    .lang button.on{color:var(--accent);border-color:var(--accent)}
+    .kicker{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.18em;
+      text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+    h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:clamp(34px,7vw,52px);
+      line-height:1.05;letter-spacing:-.02em;margin-bottom:16px}
+    .lead{font-size:18px;color:var(--dim);margin-bottom:32px}
+    .dl{
+      display:flex;align-items:center;justify-content:center;gap:12px;
+      width:100%;padding:20px;border-radius:16px;text-decoration:none;
+      background:var(--accent);color:#001520;font-size:18px;font-weight:700;
+      box-shadow:0 10px 36px -10px rgba(0,212,255,.45);transition:transform .2s,box-shadow .2s;
+    }
+    .dl:hover{transform:translateY(-2px);box-shadow:0 16px 44px -10px rgba(0,212,255,.6)}
+    .dl svg{width:24px;height:24px}
+    .meta-row{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:16px;
+      font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+    .card{background:var(--bg-elev);border:1px solid var(--line);border-radius:16px;
+      padding:24px 26px;margin-top:32px}
+    .card h2{font-size:18px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+    .card h2 .n{width:26px;height:26px;flex:none;border-radius:8px;background:rgba(0,212,255,.12);
+      color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}
+    ol.steps{list-style:none;counter-reset:s}
+    ol.steps li{position:relative;padding:10px 0 10px 34px;color:var(--dim);font-size:15px;border-bottom:1px solid var(--line)}
+    ol.steps li:last-child{border-bottom:0}
+    ol.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:10px;
+      width:22px;height:22px;border-radius:50%;background:var(--bg-2);border:1px solid var(--line-2);
+      color:var(--accent);font:600 12px "JetBrains Mono",monospace;display:flex;align-items:center;justify-content:center}
+    ol.steps li b{color:var(--text);font-weight:600}
+    .note{display:flex;gap:12px;padding:16px 18px;border-radius:12px;border:1px solid rgba(255,200,87,.4);
+      background:rgba(255,200,87,.08);font-size:14px;color:var(--dim);margin-top:24px;line-height:1.55}
+    .note svg{flex:none;width:20px;height:20px;color:var(--amber);margin-top:2px}
+    .note b{color:var(--text)}
+    .disclaimer{font-size:12.5px;color:var(--muted);text-align:center;margin-top:36px;line-height:1.6;
+      border-top:1px solid var(--line);padding-top:24px}
+    .disclaimer a{color:var(--dim)}
+    [hidden]{display:none!important}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="brand">
+      <span class="mark"><svg viewBox="0 0 32 32" fill="none" stroke="#00d4ff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16 L8 16 L11 8 L15 24 L18 12 L21 18 L24 16 L30 16"/></svg></span>
+      <span class="name">ECG Reader</span>
+      <span class="tag">APP</span>
+      <span class="lang">
+        <button data-l="ru" class="on">RU</button>
+        <button data-l="en">EN</button>
+      </span>
+    </div>
+
+    <span class="kicker" data-t="kicker">Мобильное приложение · Android</span>
+    <h1 data-t="title">Установка ECG Reader на Android</h1>
+    <p class="lead" data-t="lead">AI-интерпретация ЭКГ с двойным консенсусом. Скачайте APK и установите за минуту.</p>
+
+    <a class="dl" id="dl-btn" href="https://github.com/aslankaa1-droid/ecg-reader-com/releases/latest/download/ECG-Reader.apk">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+      <span data-t="dl">Скачать APK</span>
+    </a>
+    <div class="meta-row">
+      <span data-t="m_os">Android 7.0+ (API 24)</span>
+      <span id="dl-size">~ APK</span>
+      <span data-t="m_ver">версия 0.1.0</span>
+    </div>
+
+    <div class="card">
+      <h2><span class="n">↓</span><span data-t="how">Как установить</span></h2>
+      <ol class="steps">
+        <li data-t="s1">Нажмите <b>«Скачать APK»</b> на Android-телефоне и дождитесь загрузки файла.</li>
+        <li data-t="s2">Откройте загруженный файл (из шторки уведомлений или «Загрузки»).</li>
+        <li data-t="s3">Если появится запрос — разрешите <b>установку из этого источника</b> (Настройки → откроется автоматически).</li>
+        <li data-t="s4">Нажмите <b>«Установить»</b> → <b>«Открыть»</b>.</li>
+      </ol>
+    </div>
+
+    <div class="note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+      <span data-t="note"><b>Android-сборка для тестирования.</b> Приложение подписано тестовым ключом и распространяется напрямую (вне Google Play). Версия для iOS — позже через TestFlight.</span>
+    </div>
+
+    <p class="disclaimer" data-t="disc">ECG Reader — программное средство клинической поддержки принятия решений (CDS / SaMD), не заменяет очную консультацию врача и не является постановкой диагноза. · <a href="https://ecg-reader.com/">ecg-reader.com</a></p>
+  </div>
+
+  <script>
+    var I18N = {
+      ru:{kicker:"Мобильное приложение · Android",title:"Установка ECG Reader на Android",
+        lead:"AI-интерпретация ЭКГ с двойным консенсусом. Скачайте APK и установите за минуту.",
+        dl:"Скачать APK",m_os:"Android 7.0+ (API 24)",m_ver:"версия 0.1.0",how:"Как установить",
+        s1:"Нажмите <b>«Скачать APK»</b> на Android-телефоне и дождитесь загрузки файла.",
+        s2:"Откройте загруженный файл (из шторки уведомлений или «Загрузки»).",
+        s3:"Если появится запрос — разрешите <b>установку из этого источника</b>.",
+        s4:"Нажмите <b>«Установить»</b> → <b>«Открыть»</b>.",
+        note:"<b>Android-сборка для тестирования.</b> Приложение подписано тестовым ключом и распространяется напрямую (вне Google Play). Версия для iOS — позже через TestFlight.",
+        disc:"ECG Reader — программное средство клинической поддержки принятия решений (CDS / SaMD), не заменяет очную консультацию врача и не является постановкой диагноза. · <a href=\"https://ecg-reader.com/\">ecg-reader.com</a>"},
+      en:{kicker:"Mobile app · Android",title:"Install ECG Reader on Android",
+        lead:"Dual-AI ECG interpretation. Download the APK and install in a minute.",
+        dl:"Download APK",m_os:"Android 7.0+ (API 24)",m_ver:"version 0.1.0",how:"How to install",
+        s1:"Tap <b>“Download APK”</b> on your Android phone and wait for the file.",
+        s2:"Open the downloaded file (from the notification shade or “Downloads”).",
+        s3:"If prompted, allow <b>installing from this source</b>.",
+        s4:"Tap <b>“Install”</b> → <b>“Open”</b>.",
+        note:"<b>Test Android build.</b> Signed with a test key and distributed directly (outside Google Play). iOS version later via TestFlight.",
+        disc:"ECG Reader is clinical decision support software (CDS / SaMD); it does not replace an in-person physician consultation and is not a diagnosis. · <a href=\"https://ecg-reader.com/\">ecg-reader.com</a>"}
+    };
+    function apply(l){
+      document.documentElement.lang=l;
+      document.querySelectorAll("[data-t]").forEach(function(e){var v=I18N[l][e.getAttribute("data-t")];if(v!=null)e.innerHTML=v;});
+      document.querySelectorAll(".lang button").forEach(function(b){b.classList.toggle("on",b.dataset.l===l);});
+    }
+    document.querySelector(".lang").addEventListener("click",function(e){var b=e.target.closest("button");if(b)apply(b.dataset.l);});
+    apply((navigator.language||"ru").slice(0,2)==="en"?"en":"ru");
+  </script>
+</body>
+</html>
