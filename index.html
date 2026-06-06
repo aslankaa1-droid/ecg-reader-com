@@ -45,16 +45,20 @@
 
   <link rel="stylesheet" href="assets/styles.css" />
   <style>
-    .app-fab{position:fixed;right:20px;bottom:20px;z-index:60;display:inline-flex;align-items:center;gap:9px;
+    .app-fab{position:fixed;right:20px;bottom:20px;z-index:95;display:inline-flex;align-items:center;gap:9px;
       padding:11px 16px 11px 13px;border-radius:999px;text-decoration:none;
       background:var(--accent,#00b8d4);color:#001520;font-weight:700;font-size:14px;
-      box-shadow:0 10px 30px -8px rgba(0,184,212,.55);transition:transform .2s,box-shadow .2s,opacity .3s;
+      box-shadow:0 10px 30px -8px rgba(0,184,212,.55);transition:transform .2s,box-shadow .2s,bottom .3s;
       border:1px solid rgba(255,255,255,.25)}
     .app-fab:hover{transform:translateY(-2px);box-shadow:0 16px 40px -8px rgba(0,184,212,.7)}
     .app-fab svg{width:20px;height:20px;flex:none}
-    .app-fab .fab-x{display:none;margin-left:2px;font-weight:700;opacity:.65;font-size:16px;line-height:1;padding:0 2px}
-    .app-fab.collapsed .fab-label{display:none}
-    @media(max-width:560px){.app-fab{right:14px;bottom:14px;padding:11px 14px}}
+    /* Пока виден 152-ФЗ баннер (полная ширина низа, z-index 90) — поднимаем иконку над ним.
+       После закрытия (.hidden) или удаления баннера иконка опускается к низу. */
+    .legal-bar:not(.hidden) ~ .app-fab{bottom:90px}
+    @media(max-width:560px){
+      .app-fab{right:14px;bottom:16px;padding:11px 14px}
+      .legal-bar:not(.hidden) ~ .app-fab{bottom:104px}
+    }
     @media print{.app-fab{display:none}}
   </style>
 </head>
@@ -757,7 +761,13 @@
     </div>
   </footer>
 
-  <!-- ================== APP DOWNLOAD FAB ================== -->
+  <!-- ================== LEGAL BAR (152-ФЗ) ================== -->
+  <div class="legal-bar" id="legal-bar" role="status">
+    <span class="txt" data-i18n="legal.txt">Сайт не собирает персональные данные и не использует cookie-трекеры. Подробнее — в Privacy Policy.</span>
+    <button class="btn btn-ghost btn-sm" data-act="ok" data-i18n="legal.ok">Понятно</button>
+  </div>
+
+  <!-- ================== APP DOWNLOAD FAB (после legal-bar — для sibling-селектора) ================== -->
   <a href="download/" class="app-fab" aria-label="Скачать приложение для Android">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/>
@@ -765,12 +775,6 @@
     </svg>
     <span class="fab-label" data-i18n="fab.app">Приложение</span>
   </a>
-
-  <!-- ================== LEGAL BAR (152-ФЗ) ================== -->
-  <div class="legal-bar" id="legal-bar" role="status">
-    <span class="txt" data-i18n="legal.txt">Сайт не собирает персональные данные и не использует cookie-трекеры. Подробнее — в Privacy Policy.</span>
-    <button class="btn btn-ghost btn-sm" data-act="ok" data-i18n="legal.ok">Понятно</button>
-  </div>
 
   <script src="assets/i18n.js"></script>
   <script src="assets/app.js"></script>
