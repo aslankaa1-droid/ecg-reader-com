@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#0a0e1a" />
   <meta name="format-detection" content="telephone=no" />
   <title>ECG Reader — Dual-AI consensus для интерпретации ЭКГ</title>
-  <meta name="description" content="Клинический сервис AI-ассистированной интерпретации ЭКГ. Двойной независимый AI-консенсус. Rule-engine безопасности. CDS / SaMD Class 2б. 152-ФЗ резидентность." />
+  <meta name="description" content="Клинический сервис поддержки решений врача (CDS) для AI-ассистированной интерпретации ЭКГ. Двойной независимый AI-консенсус. Целевой класс SaMD 2б (регистрация в процессе). Не заменяет врача. 152-ФЗ резидентность." />
   <link rel="canonical" href="https://ecg-reader.com/" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="ECG Reader / Center Group Company" />
@@ -14,7 +14,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="ECG Reader" />
   <meta property="og:title" content="ECG Reader — Dual-AI consensus" />
-  <meta property="og:description" content="Каждые 8 секунд кто-то получает неправильное заключение ЭКГ. Мы делаем так, чтобы такое больше никогда не случилось." />
+  <meta property="og:description" content="Поддержка решений врача при интерпретации ЭКГ: два независимых AI-движка и rule-engine безопасности. Решение принимает врач." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ecg-reader.com/" />
   <meta property="og:image" content="https://ecg-reader.com/og-image.png" />
@@ -26,7 +26,7 @@
   <meta property="og:locale" content="ru_RU" />
   <meta property="og:locale:alternate" content="en_US" />
   <meta property="og:locale:alternate" content="zh_CN" />
-  <meta property="og:locale:alternate" content="ar_AR" />
+  <meta property="og:locale:alternate" content="ar_SA" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -102,11 +102,11 @@
           <div class="hero-text reveal">
             <span class="hero-tag"><span class="dot"></span><span data-i18n="hero.tag">Series A · разработка · Q1 2029</span></span>
             <h1 class="hero-title">
-              <span data-i18n="hero.title.pre">Спасаем жизни через</span>
+              <span data-i18n="hero.title.pre">Поддержка врача в интерпретации ЭКГ —</span>
               <em data-i18n="hero.title.accent">двойной AI-консенсус</em>
-              <span data-i18n="hero.title.post">на ЭКГ.</span>
+              <span data-i18n="hero.title.post"></span>
             </h1>
-            <p class="hero-lead" data-i18n="hero.lead">ECG Reader — клинический сервис интерпретации ЭКГ с двумя независимыми AI-движками и rule-engine безопасности. Если движки расходятся — пациент сразу попадает к врачу. CDS / SaMD Class 2б.</p>
+            <p class="hero-lead" data-i18n="hero.lead">ECG Reader — клинический сервис поддержки решений врача (CDS) при интерпретации ЭКГ: два независимых AI-движка и rule-engine безопасности. Если движки расходятся — заключение принимает врач. Целевой класс SaMD 2б (регистрация в процессе). Не заменяет заключение врача.</p>
             <div class="hero-cta">
               <a href="#contact"  class="btn btn-primary" data-i18n="hero.cta.primary">Запросить демо</a>
               <a href="docs/ECG-Reader_Pitch_Deck.html" class="btn btn-ghost" target="_blank" rel="noopener" data-i18n="hero.cta.secondary">Скачать pitch deck</a>
@@ -154,16 +154,16 @@
 
         <div class="hero-stats">
           <div class="hero-stat reveal">
-            <div class="val"><em data-i18n="hero.stat1.val">0,992</em></div>
-            <div class="lbl" data-i18n="hero.stat1.lbl">Sensitivity STEMI</div>
+            <div class="val"><em data-i18n="hero.stat1.val">0,921</em></div>
+            <div class="lbl" data-i18n="hero.stat1.lbl">AUROC (PTB-XL, hold-out)</div>
           </div>
           <div class="hero-stat reveal delay-1">
             <div class="val"><em data-i18n="hero.stat2.val">15 сек</em></div>
-            <div class="lbl" data-i18n="hero.stat2.lbl">End-to-end</div>
+            <div class="lbl" data-i18n="hero.stat2.lbl">End-to-end (цель)</div>
           </div>
           <div class="hero-stat reveal delay-2">
             <div class="val"><em data-i18n="hero.stat3.val">27</em></div>
-            <div class="lbl" data-i18n="hero.stat3.lbl">Классов SNOMED-CT</div>
+            <div class="lbl" data-i18n="hero.stat3.lbl">Классов SNOMED-CT (цель; обучено 5 суперклассов)</div>
           </div>
           <div class="hero-stat reveal delay-3">
             <div class="val"><em data-i18n="hero.stat4.val">15</em></div>
@@ -406,8 +406,8 @@
 
         <div class="evidence-row reveal">
           <div class="ev">
-            <div class="val" data-i18n="tech.ev1.v">3,22 М</div>
-            <div class="lbl" data-i18n="tech.ev1.l">ЭКГ открытых корпусов</div>
+            <div class="val" data-i18n="tech.ev1.v">≈385 500</div>
+            <div class="lbl" data-i18n="tech.ev1.l">Размеченных ЭКГ открытых корпусов</div>
           </div>
           <div class="ev">
             <div class="val" data-i18n="tech.ev2.v">18</div>
@@ -437,7 +437,7 @@
             <thead>
               <tr>
                 <th data-i18n="val.t.nos">Нозология</th>
-                <th data-i18n="val.t.ks">ECG Reader Sensitivity</th>
+                <th data-i18n="val.t.ks">Целевая Sensitivity (прогноз, не достигнуто)</th>
                 <th data-i18n="val.t.bench">Бенчмарк врачей</th>
                 <th data-i18n="val.t.delta">Delta</th>
               </tr>
@@ -445,33 +445,33 @@
             <tbody>
               <tr>
                 <td data-i18n="val.r1.n">STEMI</td>
-                <td class="good" data-i18n="val.r1.k">0,992</td>
+                <td class="target" data-i18n="val.r1.k">0,992</td>
                 <td data-i18n="val.r1.b">76% (ED-резиденты)</td>
-                <td class="good" data-i18n="val.r1.d">+23 п.п.</td>
+                <td class="target" data-i18n="val.r1.d">+23 п.п.</td>
               </tr>
               <tr>
                 <td data-i18n="val.r2.n">AFib</td>
-                <td class="good" data-i18n="val.r2.k">0,974</td>
+                <td class="target" data-i18n="val.r2.k">0,974</td>
                 <td data-i18n="val.r2.b">80% (GP-врачи)</td>
-                <td class="good" data-i18n="val.r2.d">+17 п.п.</td>
+                <td class="target" data-i18n="val.r2.d">+17 п.п.</td>
               </tr>
               <tr>
                 <td data-i18n="val.r3.n">AV-блок III степени</td>
-                <td class="good" data-i18n="val.r3.k">1,000</td>
+                <td class="target" data-i18n="val.r3.k">1,000</td>
                 <td data-i18n="val.r3.b">86% (ED-врачи)</td>
-                <td class="good" data-i18n="val.r3.d">+14 п.п.</td>
+                <td class="target" data-i18n="val.r3.d">+14 п.п.</td>
               </tr>
               <tr>
                 <td data-i18n="val.r4.n">Long QT</td>
-                <td class="good" data-i18n="val.r4.k">0,997</td>
+                <td class="target" data-i18n="val.r4.k">0,997</td>
                 <td data-i18n="val.r4.b">25–40% (общая медицина)</td>
-                <td class="good" data-i18n="val.r4.d">+60 п.п.</td>
+                <td class="target" data-i18n="val.r4.d">+60 п.п.</td>
               </tr>
               <tr>
                 <td data-i18n="val.r5.n">Macro F1 (27 классов)</td>
-                <td class="good" data-i18n="val.r5.k">0,65</td>
+                <td class="target" data-i18n="val.r5.k">0,65</td>
                 <td data-i18n="val.r5.b">CinC Challenge 2020 median 0,52</td>
-                <td class="good" data-i18n="val.r5.d">+25%</td>
+                <td class="target" data-i18n="val.r5.d">+25%</td>
               </tr>
             </tbody>
           </table>
@@ -538,8 +538,8 @@
             <p data-i18n="team.m2.d"></p>
           </div>
           <div class="card reveal delay-2">
-            <h3 data-i18n="team.m3.n">Clinical Director</h3>
-            <h4 data-i18n="team.m3.r">Hiring · Q3 2026</h4>
+            <h3 data-i18n="team.m3.n">Самханова М.А.</h3>
+            <h4 data-i18n="team.m3.r">Clinical Director</h4>
             <p data-i18n="team.m3.d"></p>
           </div>
           <div class="card reveal">
@@ -548,8 +548,8 @@
             <p data-i18n="team.m4.d"></p>
           </div>
           <div class="card reveal delay-1">
-            <h3 data-i18n="team.m5.n">Регуляторный директор</h3>
-            <h4 data-i18n="team.m5.r">Hiring · Q3 2026</h4>
+            <h3 data-i18n="team.m5.n">Кагирова Х.А.</h3>
+            <h4 data-i18n="team.m5.r">Регуляторный директор / VP RA</h4>
             <p data-i18n="team.m5.d"></p>
           </div>
           <div class="card reveal delay-2">

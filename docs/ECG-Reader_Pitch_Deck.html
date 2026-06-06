@@ -266,7 +266,7 @@ ul.feature-list li strong { color: var(--accent); }
 <section class="slide" id="s1">
   <div class="slide-number">01 / 15</div>
   <h1 class="title"><span class="accent">ECG Reader</span> AI</h1>
-  <p class="hook">Saving lives through <span class="highlight">dual-AI ECG consensus</span></p>
+  <p class="hook">Clinician decision support through <span class="highlight">dual-AI ECG consensus</span></p>
   <p class="subtitle">Series A • $5–10 M • Q1 2029</p>
   <div class="contact-box">
     <div class="name">Аслан Каа (Кагиров А.-Х. А.)</div>
@@ -381,9 +381,9 @@ ul.feature-list li strong { color: var(--accent); }
   <h2 class="slide-title">Technology <span class="accent">Differentiators</span></h2>
   <div class="grid-2">
     <div>
-      <h3>Production-grade инфраструктура</h3>
+      <h3>Целевая инфраструктура (в разработке)</h3>
       <ul class="feature-list">
-        <li><strong>10 микросервисов</strong> FastAPI + Pydantic v2</li>
+        <li><strong>10 микросервисов</strong> FastAPI + Pydantic v2 — целевая архитектура</li>
         <li><strong>Helm + Kubernetes</strong> + Istio mTLS service mesh</li>
         <li><strong>Kong API Gateway</strong> + Vault для secrets</li>
         <li><strong>CI/CD pipeline</strong> с canary deployment + cosign signing + SBOM</li>
@@ -391,20 +391,20 @@ ul.feature-list li strong { color: var(--accent); }
       </ul>
     </div>
     <div>
-      <h3>State-of-the-art ML stack</h3>
+      <h3>Целевой ML-стек (план; реально обучена 1 модель-прототип)</h3>
       <ul class="feature-list">
-        <li><strong>4 production модели</strong> — rhythm, morphology, ST, AFib</li>
-        <li><strong>4 foundation backbones</strong> с LoRA — ECG-FM, HuBERT-ECG, HeartBeit, ST-MEM</li>
-        <li><strong>6 production адаптеров</strong> — SCP-ECG, HL7 aECG, DICOM, PDF, WFDB, EDF+</li>
-        <li><strong>LLM-agent с medical guardrails</strong> + RAG на 15 языках</li>
-        <li><strong>PCCP-ready pipeline</strong> с drift monitoring</li>
+        <li><strong>Реально обучено:</strong> 1 модель 1D-ResNet (PTB-XL, 5 суперклассов), test AUROC ≈ 0,921</li>
+        <li><strong>4 модели (цель)</strong> — rhythm, morphology, ST, AFib</li>
+        <li><strong>4 foundation backbones (цель)</strong> с LoRA — ECG-FM, HuBERT-ECG, HeartBeit, ST-MEM</li>
+        <li><strong>6 адаптеров (цель)</strong> — SCP-ECG, HL7 aECG, DICOM, PDF, WFDB, EDF+</li>
+        <li><strong>PCCP-ready pipeline (цель)</strong> с drift monitoring</li>
       </ul>
     </div>
   </div>
   <div class="ask-block" style="margin-top: 32px; padding: 24px;">
     <div style="font-size:18px; color:var(--text);">Доказательная база</div>
     <div style="display:flex; gap:48px; justify-content:center; margin-top:16px;">
-      <div><div style="font-size:36px; font-weight:800; color:var(--accent)">3,22 М</div><div style="font-size:13px; color:var(--text-dim)">ЭКГ открытых корпусов</div></div>
+      <div><div style="font-size:36px; font-weight:800; color:var(--accent)">≈385 500</div><div style="font-size:13px; color:var(--text-dim)">размеченных ЭКГ открытых корпусов</div></div>
       <div><div style="font-size:36px; font-weight:800; color:var(--accent)">18</div><div style="font-size:13px; color:var(--text-dim)">публикаций об ошибках</div></div>
       <div><div style="font-size:36px; font-weight:800; color:var(--accent)">345</div><div style="font-size:13px; color:var(--text-dim)">единиц материалов реестра</div></div>
     </div>
@@ -414,24 +414,26 @@ ul.feature-list li strong { color: var(--accent); }
 <!-- SLIDE 8: VALIDATION -->
 <section class="slide" id="s8">
   <div class="slide-number">08 / 15</div>
-  <h2 class="slide-title">Clinical <span class="accent">Validation</span></h2>
+  <h2 class="slide-title">ML-метрики: <span class="accent">статус и цели</span></h2>
+  <p style="font-size:16px; color:var(--text-dim); margin-bottom:16px;">Достигнута единственная подтверждённая метрика — test macro AUROC ≈ 0,921 (PTB-XL, 1D-ResNet, 5 суперклассов). Per-nosology значения ниже — <strong style="color:#ffc800">цель (прогноз DECIDE-AI Stage 3), не достигнуто</strong>.</p>
   <table class="metric-table">
     <thead>
-      <tr><th>Нозология</th><th>ECG Reader Sensitivity</th><th>Бенчмарк врачей</th><th>Delta</th></tr>
+      <tr><th>Показатель</th><th>Значение</th><th>Статус</th></tr>
     </thead>
     <tbody>
-      <tr><td>STEMI</td><td class="good">0.992</td><td>76% (ED резиденты)</td><td class="good">+23 п.п.</td></tr>
-      <tr><td>AFib</td><td class="good">0.974</td><td>80% (GP-врачи)</td><td class="good">+17 п.п.</td></tr>
-      <tr><td>AV-блок III степени</td><td class="good">1.000</td><td>86% (ED-врачи)</td><td class="good">+14 п.п.</td></tr>
-      <tr><td>Long QT</td><td class="good">0.997</td><td>25–40% (общая медицина)</td><td class="good">+60 п.п.</td></tr>
-      <tr><td>Macro F1 (27 классов)</td><td class="good">0.65</td><td>CinC Challenge 2020 median 0.52</td><td class="good">+25%</td></tr>
+      <tr><td>Test macro AUROC (PTB-XL, 5 суперклассов)</td><td class="good">≈ 0,921</td><td class="good">достигнуто</td></tr>
+      <tr><td>STEMI sensitivity</td><td>0.992</td><td class="warn">цель, не достигнуто</td></tr>
+      <tr><td>AFib sensitivity</td><td>0.974</td><td class="warn">цель, не достигнуто</td></tr>
+      <tr><td>AV-блок III sensitivity</td><td>1.000</td><td class="warn">цель, не достигнуто</td></tr>
+      <tr><td>Long QT sensitivity</td><td>0.997</td><td class="warn">цель, не достигнуто</td></tr>
+      <tr><td>Macro F1 (целевой 27-классовый набор)</td><td>0.65</td><td class="warn">цель, не достигнуто</td></tr>
     </tbody>
   </table>
   <div class="kpi-row" style="margin-top:32px;">
-    <div class="kpi-chip"><strong>Lancet Digital Health</strong> публикация</div>
-    <div class="kpi-chip"><strong>DECIDE-AI</strong> prospective 5 ЛПУ × 1000 пациентов</div>
-    <div class="kpi-chip"><strong>3 НМИЦ-партнёра</strong> Чазова + Алмазова + Бакулева</div>
-    <div class="kpi-chip"><strong>Subgroup fairness</strong> ≤ 0.05 max gap</div>
+    <div class="kpi-chip"><strong>Lancet Digital Health</strong> публикация — цель, не достигнуто</div>
+    <div class="kpi-chip"><strong>DECIDE-AI</strong> проспективное исследование — запланировано (IRB Q1 2027)</div>
+    <div class="kpi-chip"><strong>НМИЦ Чазова / Алмазова / Бакулева</strong> — целевые партнёры, договоры не подписаны</div>
+    <div class="kpi-chip"><strong>Subgroup fairness</strong> ≤ 0.05 max gap — цель</div>
   </div>
 </section>
 
@@ -463,8 +465,8 @@ ul.feature-list li strong { color: var(--accent); }
     </div>
   </div>
   <div class="grid-3" style="margin-top: 32px;">
-    <div class="stat-card green"><div class="value">75×</div><div class="label">LTV / CAC (Y3)</div></div>
-    <div class="stat-card green"><div class="value">81%</div><div class="label">Gross margin (Y3)</div></div>
+    <div class="stat-card"><div class="value">цель</div><div class="label">LTV / CAC (Y3) — прогноз, требует обоснования</div></div>
+    <div class="stat-card"><div class="value">цель</div><div class="label">Gross margin (Y3) — прогноз, на сверке</div></div>
     <div class="stat-card green"><div class="value">105%</div><div class="label">NRR (Y1)</div></div>
   </div>
 </section>
@@ -472,23 +474,23 @@ ul.feature-list li strong { color: var(--accent); }
 <!-- SLIDE 10: TRACTION -->
 <section class="slide" id="s10">
   <div class="slide-number">10 / 15</div>
-  <h2 class="slide-title"><span class="accent">Traction</span> at Series A (Q3 2028)</h2>
+  <h2 class="slide-title">Целевые показатели к <span class="accent">Series A</span> (прогноз Q3 2028, не достигнуто)</h2>
   <div class="grid-4">
     <div class="stat-card green"><div class="value">50+</div><div class="label">Платящих клиник</div></div>
     <div class="stat-card green"><div class="value">$2 M</div><div class="label">ARR</div></div>
     <div class="stat-card green"><div class="value">500K+</div><div class="label">Обработанных ЭКГ</div></div>
     <div class="stat-card green"><div class="value">200+</div><div class="label">Кардиологов</div></div>
-    <div class="stat-card"><div class="value">3</div><div class="label">OEM-партнёрства</div><div class="note">Нейрософт, ИНКАРТ, Аксион</div></div>
-    <div class="stat-card"><div class="value">✅</div><div class="label">РУ Class 2б РФ</div><div class="note">Получено Q4 2027</div></div>
-    <div class="stat-card"><div class="value">🚧</div><div class="label">EU CE Mark</div><div class="note">In progress, Q1 2029 ETA</div></div>
-    <div class="stat-card"><div class="value">🚧</div><div class="label">FDA 510(k)</div><div class="note">Submitted, Q1 2029 ETA</div></div>
+    <div class="stat-card"><div class="value">🎯</div><div class="label">OEM-партнёрства</div><div class="note">целевые, не подписаны</div></div>
+    <div class="stat-card"><div class="value">🎯</div><div class="label">РУ Class 2б РФ</div><div class="note">цель Q4 2027, не достигнуто</div></div>
+    <div class="stat-card"><div class="value">🎯</div><div class="label">EU CE Mark</div><div class="note">целевое, Q1 2029</div></div>
+    <div class="stat-card"><div class="value">🎯</div><div class="label">FDA 510(k)</div><div class="note">целевая подача, не подано</div></div>
   </div>
-  <h3 style="margin-top:48px;">Признание</h3>
+  <h3 style="margin-top:48px;">Целевое признание (не достигнуто)</h3>
   <div class="kpi-row">
-    <div class="kpi-chip">ESC Congress 2028 presentation</div>
-    <div class="kpi-chip">HIMSS Innovation Award nominee</div>
-    <div class="kpi-chip">Forbes РФ "Top 50 Tech Startups"</div>
-    <div class="kpi-chip">Lancet Digital Health publication</div>
+    <div class="kpi-chip">ESC Congress presentation — цель</div>
+    <div class="kpi-chip">HIMSS Innovation Award — цель</div>
+    <div class="kpi-chip">Forbes РФ — цель</div>
+    <div class="kpi-chip">Lancet Digital Health publication — цель</div>
   </div>
 </section>
 
@@ -512,13 +514,13 @@ ul.feature-list li strong { color: var(--accent); }
       <tr><td>27 SNOMED-CT классов</td><td class="self-col yes">✓</td><td class="no">✗ только AFib</td><td class="yes">✓</td><td class="no">✗</td><td class="yes">✓</td></tr>
       <tr><td>Rule-engine override</td><td class="self-col yes">✓</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td></tr>
       <tr><td>15 языков UI (вкл. RTL)</td><td class="self-col yes">✓</td><td class="partial">EN+</td><td class="partial">EN+</td><td class="partial">EN</td><td class="partial">EN/ES</td></tr>
-      <tr><td>РФ-регистрация</td><td class="self-col yes">✓ 2б</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td></tr>
-      <tr><td>152-ФЗ резидентность</td><td class="self-col yes">✓</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td></tr>
-      <tr><td>FDA cleared</td><td class="self-col partial">🚧 2029</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">✗</td></tr>
+      <tr><td>РФ-регистрация</td><td class="self-col partial">🎯 2б (цель)</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td></tr>
+      <tr><td>152-ФЗ резидентность</td><td class="self-col partial">🎯 целевое</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td></tr>
+      <tr><td>FDA 510(k)</td><td class="self-col partial">🎯 целевая подача</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">✗</td></tr>
       <tr><td>Immutable audit log</td><td class="self-col yes">✓</td><td class="no">✗</td><td class="partial">~</td><td class="no">✗</td><td class="no">✗</td></tr>
     </tbody>
   </table>
-  <p style="margin-top:32px; font-size:18px; color:var(--text-dim); text-align:center;">Только мы делаем <strong style="color:var(--accent)">двойной независимый AI-консенсус</strong> в категории клинически валидированных SaMD.</p>
+  <p style="margin-top:32px; font-size:18px; color:var(--text-dim); text-align:center;">Только мы делаем <strong style="color:var(--accent)">двойной независимый AI-консенсус</strong> (архитектура в разработке).</p>
 </section>
 
 <!-- SLIDE 12: TEAM -->
@@ -534,7 +536,7 @@ ul.feature-list li strong { color: var(--accent); }
     <div class="stat-card">
       <h3>CTO / ML Lead</h3>
       <h4>Технологии</h4>
-      <p style="color:var(--text-dim); font-size:14px;">10 production-grade микросервисов. 4 foundation backbones. Full CI/CD + Helm + Istio.</p>
+      <p style="color:var(--text-dim); font-size:14px;">Целевая архитектура: 10 микросервисов, 4 foundation backbones, CI/CD + Helm + Istio (в разработке). Реально обучена 1 модель-прототип.</p>
     </div>
     <div class="stat-card">
       <h3>Clinical Director</h3>
@@ -553,8 +555,8 @@ ul.feature-list li strong { color: var(--accent); }
     </div>
     <div class="stat-card">
       <h3>Advisory Board</h3>
-      <h4>15 KOL: РФ + EU + US</h4>
-      <p style="color:var(--text-dim); font-size:14px;">НМИЦ Чазова + Алмазова + Бакулева; ESC fellows; Mayo / Cleveland Clinic.</p>
+      <h4>KOL: РФ + EU + US (целевой состав)</h4>
+      <p style="color:var(--text-dim); font-size:14px;">Целевые партнёры (НМИЦ, ESC fellows, Mayo / Cleveland Clinic) — не подтверждены [ТРЕБУЕТ РЕШЕНИЯ ЗАКАЗЧИКА].</p>
     </div>
   </div>
   <p style="margin-top:32px; font-size:18px; color:var(--text-dim); text-align:center;">Team scale: <strong style="color:var(--accent)">40 (Q3 2028)</strong> → <strong style="color:var(--accent)">98 (Y2)</strong> → <strong style="color:var(--accent)">183 (Y3)</strong></p>
@@ -571,8 +573,8 @@ ul.feature-list li strong { color: var(--accent); }
       <ul class="feature-list">
         <li>150 клиник</li>
         <li>$10 M ARR</li>
-        <li>EU CE Mark получен</li>
-        <li>FDA 510(k) submitted</li>
+        <li>EU CE Mark — целевое</li>
+        <li>FDA 510(k) — целевая подача</li>
         <li>Профильность Y2 +45%</li>
       </ul>
     </div>
@@ -582,7 +584,7 @@ ul.feature-list li strong { color: var(--accent); }
       <ul class="feature-list">
         <li>500 клиник</li>
         <li>$40 M ARR</li>
-        <li>FDA 510(k) cleared</li>
+        <li>FDA 510(k) — целевое</li>
         <li>Mayo + Cleveland пилоты</li>
         <li>5 OEM-партнёрств</li>
       </ul>
