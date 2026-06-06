@@ -78,6 +78,14 @@
     .disclaimer{font-size:12.5px;color:var(--muted);text-align:center;margin-top:36px;line-height:1.6;
       border-top:1px solid var(--line);padding-top:24px}
     .disclaimer a{color:var(--dim)}
+    .qr-card{display:flex;gap:18px;align-items:center;background:var(--bg-elev);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:22px}
+    .qr-img{flex:none;background:#fff;border-radius:10px;padding:8px;line-height:0}
+    .qr-img img{display:block;width:120px;height:120px}
+    .qr-txt b{font-size:15px;color:var(--text)}
+    .qr-txt p{font-size:13.5px;color:var(--dim);margin:4px 0 8px}
+    .qr-req{color:var(--accent);font-size:13.5px;font-weight:600;text-decoration:none}
+    .qr-req:hover{text-decoration:underline}
+    @media(max-width:520px){.qr-card{flex-direction:column;text-align:center;align-items:center}}
     [hidden]{display:none!important}
   </style>
 </head>
@@ -93,32 +101,41 @@
       </span>
     </div>
 
-    <span class="kicker" data-t="kicker">Исследовательская сборка · доступ по запросу</span>
-    <h1 data-t="title">ECG Reader для Android — доступ по запросу</h1>
-    <p class="lead" data-t="lead">Приложение — исследовательский прототип. Не зарегистрировано как медицинское изделие и не предназначено для клинического применения. Доступ предоставляется только верифицированным участникам контролируемого пилота под соглашением.</p>
+    <span class="kicker" data-t="kicker">Приложение · Android · исследовательская сборка</span>
+    <h1 data-t="title">Скачать ECG Reader для Android</h1>
+    <p class="lead" data-t="lead">Исследовательский прототип для ознакомления специалистами. Не зарегистрированное медицинское изделие, не для постановки диагноза.</p>
 
-    <a class="dl" id="dl-btn" href="mailto:aslankaa@yandex.ru?subject=ECG%20Reader%20%E2%80%94%20%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%B0%20%D0%BA%20%D0%BF%D0%B8%D0%BB%D0%BE%D1%82%D1%83">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
-      <span data-t="dl">Запросить доступ к пилоту</span>
+    <a class="dl" id="dl-btn" href="https://github.com/aslankaa1-droid/ecg-reader-com/releases/latest/download/ECG-Reader.apk">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+      <span data-t="dl">Скачать APK · 53 МБ</span>
     </a>
     <div class="meta-row">
       <span data-t="m_os">Android 7.0+ (API 24)</span>
-      <span data-t="m_ver">исследовательский прототип</span>
+      <span data-t="m_ver">версия 0.1.0 · прототип</span>
+    </div>
+
+    <div class="qr-card">
+      <span class="qr-img"><img src="../svg/qr-download.svg" width="120" height="120" alt="QR" /></span>
+      <div class="qr-txt">
+        <b data-t="qr_t">Сканируйте телефоном</b>
+        <p data-t="qr_d">Наведите камеру Android-телефона на QR-код — откроется эта страница для скачивания.</p>
+        <a class="qr-req" data-t="req" href="mailto:aslankaa@yandex.ru?subject=ECG%20Reader%20%E2%80%94%20%D0%BF%D0%B8%D0%BB%D0%BE%D1%82">Запросить доступ к пилоту / NDA →</a>
+      </div>
     </div>
 
     <div class="card">
-      <h2><span class="n">!</span><span data-t="how">Условия доступа</span></h2>
+      <h2><span class="n">↓</span><span data-t="how">Как установить</span></h2>
       <ol class="steps">
-        <li data-t="s1">Доступ — только для медицинских организаций и специалистов в рамках <b>контролируемого пилота</b>.</li>
-        <li data-t="s2">Требуется подписанное <b>соглашение о пилоте / NDA</b> и подтверждение профиля участника.</li>
-        <li data-t="s3">Сборка <b>не для постановки диагноза</b> и не для клинических решений у постели пациента.</li>
-        <li data-t="s4">После верификации участнику направляется индивидуальная ссылка и инструкция.</li>
+        <li data-t="s1">Нажмите <b>«Скачать APK»</b> на Android-телефоне и дождитесь загрузки файла.</li>
+        <li data-t="s2">Откройте загруженный файл (из шторки уведомлений или «Загрузки»).</li>
+        <li data-t="s3">Если появится запрос — разрешите <b>установку из этого источника</b>.</li>
+        <li data-t="s4">Нажмите <b>«Установить»</b> → <b>«Открыть»</b>.</li>
       </ol>
     </div>
 
     <div class="note">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
-      <span data-t="note"><b>Исследовательский прототип.</b> Изделие не зарегистрировано (целевой класс SaMD 2б/IIb, регистрация в процессе). Публичная установка недоступна. Распространение — только в рамках контролируемого пилота.</span>
+      <span data-t="note"><b>Исследовательский прототип.</b> Изделие не зарегистрировано (целевой класс SaMD 2б/IIb, регистрация в процессе). Сборка предназначена только для ознакомления специалистами и не для постановки диагноза или клинических решений у постели пациента.</span>
     </div>
 
     <p class="disclaimer" data-t="disc">ECG Reader — программное средство поддержки решений врача (CDS / SaMD). Не заменяет очную консультацию врача, не является постановкой диагноза и не зарегистрировано как медицинское изделие. · <a href="https://ecg-reader.com/">ecg-reader.com</a></p>
@@ -126,23 +143,29 @@
 
   <script>
     var I18N = {
-      ru:{kicker:"Исследовательская сборка · доступ по запросу",title:"ECG Reader для Android — доступ по запросу",
-        lead:"Приложение — исследовательский прототип. Не зарегистрировано как медицинское изделие и не предназначено для клинического применения. Доступ предоставляется только верифицированным участникам контролируемого пилота под соглашением.",
-        dl:"Запросить доступ к пилоту",m_os:"Android 7.0+ (API 24)",m_ver:"исследовательский прототип",how:"Условия доступа",
-        s1:"Доступ — только для медицинских организаций и специалистов в рамках <b>контролируемого пилота</b>.",
-        s2:"Требуется подписанное <b>соглашение о пилоте / NDA</b> и подтверждение профиля участника.",
-        s3:"Сборка <b>не для постановки диагноза</b> и не для клинических решений у постели пациента.",
-        s4:"После верификации участнику направляется индивидуальная ссылка и инструкция.",
-        note:"<b>Исследовательский прототип.</b> Изделие не зарегистрировано (целевой класс SaMD 2б/IIb, регистрация в процессе). Публичная установка недоступна. Распространение — только в рамках контролируемого пилота.",
+      ru:{kicker:"Приложение · Android · исследовательская сборка",title:"Скачать ECG Reader для Android",
+        lead:"Исследовательский прототип для ознакомления специалистами. Не зарегистрированное медицинское изделие, не для постановки диагноза.",
+        dl:"Скачать APK · 53 МБ",m_os:"Android 7.0+ (API 24)",m_ver:"версия 0.1.0 · прототип",how:"Как установить",
+        qr_t:"Сканируйте телефоном",
+        qr_d:"Наведите камеру Android-телефона на QR-код — откроется эта страница для скачивания.",
+        req:"Запросить доступ к пилоту / NDA →",
+        s1:"Нажмите <b>«Скачать APK»</b> на Android-телефоне и дождитесь загрузки файла.",
+        s2:"Откройте загруженный файл (из шторки уведомлений или «Загрузки»).",
+        s3:"Если появится запрос — разрешите <b>установку из этого источника</b>.",
+        s4:"Нажмите <b>«Установить»</b> → <b>«Открыть»</b>.",
+        note:"<b>Исследовательский прототип.</b> Изделие не зарегистрировано (целевой класс SaMD 2б/IIb, регистрация в процессе). Сборка предназначена только для ознакомления специалистами и не для постановки диагноза или клинических решений у постели пациента.",
         disc:"ECG Reader — программное средство поддержки решений врача (CDS / SaMD). Не заменяет очную консультацию врача, не является постановкой диагноза и не зарегистрировано как медицинское изделие. · <a href=\"https://ecg-reader.com/\">ecg-reader.com</a>"},
-      en:{kicker:"Investigational build · access on request",title:"ECG Reader for Android — access on request",
-        lead:"The app is an investigational prototype. It is NOT a registered medical device and is NOT intended for clinical use. Access is granted only to verified participants of a controlled pilot under agreement.",
-        dl:"Request pilot access",m_os:"Android 7.0+ (API 24)",m_ver:"investigational prototype",how:"Access terms",
-        s1:"Access is limited to healthcare organizations and professionals within a <b>controlled pilot</b>.",
-        s2:"A signed <b>pilot agreement / NDA</b> and participant verification are required.",
-        s3:"This build is <b>not for diagnosis</b> and not for bedside clinical decisions.",
-        s4:"After verification, the participant receives an individual link and instructions.",
-        note:"<b>Investigational prototype.</b> The device is not registered (target SaMD Class 2б/IIb, registration in progress). Public installation is unavailable. Distribution is limited to a controlled pilot.",
+      en:{kicker:"App · Android · investigational build",title:"Download ECG Reader for Android",
+        lead:"Investigational prototype for evaluation by professionals. Not a registered medical device, not for diagnosis.",
+        dl:"Download APK · 53 MB",m_os:"Android 7.0+ (API 24)",m_ver:"version 0.1.0 · prototype",how:"How to install",
+        qr_t:"Scan with your phone",
+        qr_d:"Point your Android phone camera at the QR code to open this page and download.",
+        req:"Request pilot access / NDA →",
+        s1:"Tap <b>“Download APK”</b> on your Android phone and wait for the file.",
+        s2:"Open the downloaded file (from the notification shade or “Downloads”).",
+        s3:"If prompted, allow <b>installing from this source</b>.",
+        s4:"Tap <b>“Install”</b> → <b>“Open”</b>.",
+        note:"<b>Investigational prototype.</b> The device is not registered (target SaMD Class 2б/IIb, registration in progress). This build is for evaluation by professionals only and not for diagnosis or bedside clinical decisions.",
         disc:"ECG Reader is clinical decision support software (CDS / SaMD). It does not replace an in-person physician consultation, is not a diagnosis, and is not a registered medical device. · <a href=\"https://ecg-reader.com/\">ecg-reader.com</a>"}
     };
     function apply(l){

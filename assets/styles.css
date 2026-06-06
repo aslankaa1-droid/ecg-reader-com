@@ -468,15 +468,20 @@ section.section.compact { padding: var(--sp-9) 0; }
   stroke-linejoin: round;
   stroke-dasharray: 1400;
   stroke-dashoffset: 1400;
-  animation: trace-in 3.2s var(--ease-out) 0.4s forwards,
-             trace-loop 6s linear 3.6s infinite;
+  animation: trace-run 5s linear infinite,
+             trace-loop 3s ease-in-out infinite;
 }
-@keyframes trace-in {
-  to { stroke-dashoffset: 0; }
+/* Непрерывная развёртка: рисуется слева направо, держится, уходит вправо, повторяется
+   (переход на стыке цикла происходит в невидимой фазе — без скачка). */
+@keyframes trace-run {
+  0%   { stroke-dashoffset: 1400; }
+  42%  { stroke-dashoffset: 0; }
+  58%  { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -1400; }
 }
 @keyframes trace-loop {
   0%   { filter: drop-shadow(0 0 8px rgba(0,212,255,0.4)); }
-  50%  { filter: drop-shadow(0 0 24px rgba(0,212,255,0.7)); }
+  50%  { filter: drop-shadow(0 0 22px rgba(0,212,255,0.75)); }
   100% { filter: drop-shadow(0 0 8px rgba(0,212,255,0.4)); }
 }
 

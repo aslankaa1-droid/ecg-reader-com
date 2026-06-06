@@ -13,6 +13,7 @@ window.I18N = {
     "nav.team": "Команда",
     "nav.contact": "Контакты",
     "nav.cta": "Запросить демо",
+    "fab.app": "Приложение",
 
     /* hero */
     "hero.tag": "Series A · разработка · Q1 2029",
@@ -337,6 +338,7 @@ window.I18N = {
     "nav.team": "Team",
     "nav.contact": "Contact",
     "nav.cta": "Request demo",
+    "fab.app": "App",
 
     "hero.tag": "Series A · in development · Q1 2029",
     "hero.title.pre": "Clinician decision support for ECG —",
@@ -645,6 +647,7 @@ window.I18N = {
     "nav.team": "团队",
     "nav.contact": "联系",
     "nav.cta": "请求演示",
+    "fab.app": "应用",
 
     "hero.tag": "Series A · 开发中 · 2029年第一季度",
     "hero.title.pre": "心电图判读的临床医师辅助 —",
@@ -953,6 +956,7 @@ window.I18N = {
     "nav.team": "الفريق",
     "nav.contact": "اتصل بنا",
     "nav.cta": "طلب عرض توضيحي",
+    "fab.app": "التطبيق",
 
     "hero.tag": "سلسلة A · قيد التطوير · الربع الأول 2029",
     "hero.title.pre": "دعم الطبيب في تفسير تخطيط القلب —",

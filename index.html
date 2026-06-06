@@ -44,6 +44,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Cairo:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    .app-fab{position:fixed;right:20px;bottom:20px;z-index:60;display:inline-flex;align-items:center;gap:9px;
+      padding:11px 16px 11px 13px;border-radius:999px;text-decoration:none;
+      background:var(--accent,#00b8d4);color:#001520;font-weight:700;font-size:14px;
+      box-shadow:0 10px 30px -8px rgba(0,184,212,.55);transition:transform .2s,box-shadow .2s,opacity .3s;
+      border:1px solid rgba(255,255,255,.25)}
+    .app-fab:hover{transform:translateY(-2px);box-shadow:0 16px 40px -8px rgba(0,184,212,.7)}
+    .app-fab svg{width:20px;height:20px;flex:none}
+    .app-fab .fab-x{display:none;margin-left:2px;font-weight:700;opacity:.65;font-size:16px;line-height:1;padding:0 2px}
+    .app-fab.collapsed .fab-label{display:none}
+    @media(max-width:560px){.app-fab{right:14px;bottom:14px;padding:11px 14px}}
+    @media print{.app-fab{display:none}}
+  </style>
 </head>
 <body>
 
@@ -743,6 +756,15 @@
       <p class="foot-disc" style="margin-top: var(--sp-3);" data-i18n="ft.copy">© 2025–2026 Center Group Company · ИС ECG Reader. Все права защищены.</p>
     </div>
   </footer>
+
+  <!-- ================== APP DOWNLOAD FAB ================== -->
+  <a href="download/" class="app-fab" aria-label="Скачать приложение для Android">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/>
+      <path d="M12 7v5m0 0l-2-2m2 2l2-2"/>
+    </svg>
+    <span class="fab-label" data-i18n="fab.app">Приложение</span>
+  </a>
 
   <!-- ================== LEGAL BAR (152-ФЗ) ================== -->
   <div class="legal-bar" id="legal-bar" role="status">
